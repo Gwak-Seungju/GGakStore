@@ -1,9 +1,19 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import useStore from './store';
 import './App.css';
 
 export default function SearchBox() {
-    const { items } = useStore((state) => state);
+    const { items, shoppingData } = useStore((state) => state);
+    const { product } = useParams();
+    const decodedProduct = decodeURIComponent(product);
+    const currentURL = window.location.href;
+    const regex = /\/SearchBox/;
+    useEffect(() => {
+        if (regex.test(currentURL)) {
+            shoppingData(decodedProduct);
+        }
+    }, [decodedProduct]);
 
     return (
         <div id="searchBoxContainer">
