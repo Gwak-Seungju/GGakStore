@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useStore from './store';
 import { useRef } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import CategoryRanking from './CategoryRanking';
 import SearchBox from './SearchBox';
 import ProductBox from './ProductBox';
