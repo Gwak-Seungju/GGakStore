@@ -1,6 +1,6 @@
 import React from 'react';
 import useStore from './store/store';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CategoryRanking from './components/CategoryRanking';
 import SearchBox from './pages/SearchBox';
@@ -11,7 +11,7 @@ import VisitedProduct from './components/VisitedProduct';
 import './styles/App.css';
 
 function App() {
-    const { shoppingData } = useStore((state) => state);
+    const { shoppingData, shoppingDataByCategory } = useStore((state) => state);
     const inputRef = useRef();
     const navigate = useNavigate();
 
@@ -29,6 +29,10 @@ function App() {
     const goHome = () => {
         navigate('/');
     };
+
+    useEffect(() => {
+        shoppingDataByCategory('상의');
+    }, []);
 
     return (
         <div id="container">

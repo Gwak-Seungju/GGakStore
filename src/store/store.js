@@ -27,9 +27,23 @@ const useStore = create(
             setData: (data) => set({ items: data }),
             items: [],
 
-            getShoppingData: () => {
-                console.log(get().items);
+            shoppingDataByCategory: async (product) => {
+                await axios
+                    .get(URL, {
+                        params: {
+                            query: product,
+                            display: 100,
+                        },
+                        headers: {
+                            'X-Naver-Client-Id': ClientID,
+                            'X-Naver-Client-Secret': ClientSecret,
+                        },
+                    })
+                    .then((res) => get().setItemByCategory(res.data.items))
+                    .catch((e) => {});
             },
+            setItemByCategory: (data) => set({ itemByCategory: data }),
+            itemByCategory: [],
 
             bucket: [],
             setBucket: (data) => set({ bucket: data }),

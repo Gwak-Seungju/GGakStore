@@ -361,3 +361,32 @@ body {
     align-self: center;
     font-size: 18px;
 }
+
+/*CategoryRanking*/
+#rankingContainer {
+    display: grid;
+    grid-template-columns: 100px auto;
+    column-gap: 20px;
+}
+
+#productListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 5px;
+}
+
+.productBtn {
+    font-size: 12px;
+    width: auto;
+    height: 20px;
+    border: none;
+    padding: 0;
+    color: gray;
+    background-color: white;
+    text-align: left;
+
+    &.active {
+        color: black;
+        font-weight: bold;
+    }
+}
