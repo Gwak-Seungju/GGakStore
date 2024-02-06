@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import useStore from '../store/store';
 import { Link } from 'react-router-dom';
 
 export default function CategoryRanking() {
-    const { shoppingDataByCategory, itemByCategory, addVisitedProduct } = useStore((state) => state);
+    const { shoppingData, items, addVisitedProduct, btnActive, setBtnActive } = useStore((state) => state);
     const productList = ['상의', '아우터', '바지', '스커트', '가방', '신발', '시계', '모자', '스포츠', '안경'];
-    const [btnActive, setBtnActive] = useState('상의');
 
     return (
         <div id="rankingContainer">
@@ -17,7 +15,7 @@ export default function CategoryRanking() {
                         className={'productBtn' + (btnActive == item ? ' active' : '')}
                         onClick={() => {
                             setBtnActive(item);
-                            shoppingDataByCategory(item);
+                            shoppingData(item);
                         }}
                     >
                         {item}
@@ -25,8 +23,8 @@ export default function CategoryRanking() {
                 ))}
             </div>
             <div id="searchBoxContainer">
-                {itemByCategory &&
-                    itemByCategory.map((item, index) => (
+                {items &&
+                    items.map((item, index) => (
                         <div id="searchBoxProduct" key={index}>
                             <div id="searchBoxRanking">{index + 1}위</div>
                             <Link to={`/ProductBox/${item.productId}/${index + 1}`}>

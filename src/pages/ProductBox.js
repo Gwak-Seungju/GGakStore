@@ -7,8 +7,6 @@ export default function ProductBox() {
     const { items, addItem } = useStore((state) => state);
     const [productNumber, setProductNumber] = useState(1);
     const navigate = useNavigate();
-    console.log(useParams().ranking);
-    console.log(useParams().productId);
     return (
         <div id="productBoxContainer">
             <img id="productBoxProductImage" src={items[ranking.ranking - 1].image}></img>

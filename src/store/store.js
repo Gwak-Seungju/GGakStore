@@ -9,6 +9,9 @@ const URL = '/v1/search/shop.json';
 const useStore = create(
     persist(
         (set, get) => ({
+            btnActive: '상의',
+            setBtnActive: (product) => set({ btnActive: product }),
+
             shoppingData: async (product) => {
                 await axios
                     .get(URL, {
@@ -26,24 +29,6 @@ const useStore = create(
             },
             setData: (data) => set({ items: data }),
             items: [],
-
-            shoppingDataByCategory: async (product) => {
-                await axios
-                    .get(URL, {
-                        params: {
-                            query: product,
-                            display: 100,
-                        },
-                        headers: {
-                            'X-Naver-Client-Id': ClientID,
-                            'X-Naver-Client-Secret': ClientSecret,
-                        },
-                    })
-                    .then((res) => get().setItemByCategory(res.data.items))
-                    .catch((e) => {});
-            },
-            setItemByCategory: (data) => set({ itemByCategory: data }),
-            itemByCategory: [],
 
             bucket: [],
             setBucket: (data) => set({ bucket: data }),
