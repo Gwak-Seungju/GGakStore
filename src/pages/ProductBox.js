@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useStore from './store';
+import useStore from '../store/store';
 import './App.css';
 
 export default function ProductBox() {
@@ -8,6 +8,8 @@ export default function ProductBox() {
     const { items, addItem } = useStore((state) => state);
     const [productNumber, setProductNumber] = useState(1);
     const navigate = useNavigate();
+    console.log(useParams().ranking);
+    console.log(useParams().productId);
     return (
         <div id="productBoxContainer">
             <img id="productBoxProductImage" src={items[ranking.ranking - 1].image}></img>

@@ -1,4 +1,4 @@
-import useStore from './store';
+import useStore from '../store/store';
 import { Link } from 'react-router-dom';
 
 export default function BucketBox() {

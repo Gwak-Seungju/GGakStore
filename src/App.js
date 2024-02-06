@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import useStore from './store';
+import React from 'react';
+import useStore from './store/store';
 import { useRef } from 'react';
-import { Routes, Route, useNavigate, useParams } from 'react-router-dom';
-import CategoryRanking from './CategoryRanking';
-import SearchBox from './SearchBox';
-import ProductBox from './ProductBox';
-import BucketBox from './BucketBox';
-import PaymentBox from './PaymentBox';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import CategoryRanking from './components/CategoryRanking';
+import SearchBox from './pages/SearchBox';
+import ProductBox from './pages/ProductBox';
+import BucketBox from './pages/BucketBox';
+import PaymentBox from './pages/PaymentBox';
+import VisitedProduct from './pages/VisitedProduct';
 import './App.css';
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     };
 
     return (
-        <>
+        <div id="container">
             <div id="headContainer">
                 <div>
                     <div id="title">
@@ -60,6 +61,9 @@ function App() {
                     </button>
                 </div>
             </div>
+
+            <VisitedProduct />
+
             <Routes>
                 <Route path="/" element={<CategoryRanking />} />
                 <Route path="/SearchBox/:product" element={<SearchBox />} />
@@ -67,7 +71,7 @@ function App() {
                 <Route path="/BucketBox" element={<BucketBox />} />
                 <Route path="/PaymentBox" element={<PaymentBox />} />
             </Routes>
-        </>
+        </div>
     );
 }
 

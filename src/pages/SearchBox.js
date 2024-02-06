@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import useStore from './store';
+import useStore from '../store/store';
 import './App.css';
 
 export default function SearchBox() {
-    const { items, shoppingData } = useStore((state) => state);
+    const { items, shoppingData, addVisitedProduct } = useStore((state) => state);
     const { product } = useParams();
     const decodedProduct = decodeURIComponent(product);
     const currentURL = window.location.href;
@@ -21,7 +21,14 @@ export default function SearchBox() {
                 <div id="searchBoxProduct" key={index}>
                     <div id="searchBoxRanking">{index + 1}위</div>
                     <Link to={`/ProductBox/${item.productId}/${index + 1}`}>
-                        <img id="searchBoxProductImage" src={item.image} alt={item.mallnmae}></img>
+                        <img
+                            id="searchBoxProductImage"
+                            src={item.image}
+                            alt={item.mallName}
+                            onClick={() => {
+                                addVisitedProduct(item);
+                            }}
+                        ></img>
                     </Link>
                     <div id="searchBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
                     <br></br>

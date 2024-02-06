@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useStore from './store';
+import useStore from '../store/store';
 import { useLocation } from 'react-router-dom';
 
 export default function PaymentBox() {
