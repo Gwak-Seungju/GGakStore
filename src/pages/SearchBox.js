@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useStore from '../store/store';
-import './App.css';
 
 export default function SearchBox() {
     const { items, shoppingData, addVisitedProduct } = useStore((state) => state);
@@ -31,9 +30,10 @@ export default function SearchBox() {
                         ></img>
                     </Link>
                     <div id="searchBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
-                    <br></br>
-                    <span id="searchBoxProductPrice">{(1 * item.lprice).toLocaleString('ko-KR')}</span>
-                    <span>원</span>
+                    <div>
+                        <span id="searchBoxProductPrice">{(1 * item.lprice).toLocaleString('ko-KR')}</span>
+                        <span>원</span>
+                    </div>
                 </div>
             ))}
         </div>

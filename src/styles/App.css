@@ -104,6 +104,7 @@ body {
 #searchBoxProductName {
     width: 200px;
     font-size: 11px;
+    /* 줄넘김 대신 '...'으로 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

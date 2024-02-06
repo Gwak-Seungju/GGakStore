@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useStore from '../store/store';
-import './App.css';
 
 export default function ProductBox() {
     const ranking = useParams();

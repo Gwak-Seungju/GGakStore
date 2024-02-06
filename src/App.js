@@ -7,8 +7,8 @@ import SearchBox from './pages/SearchBox';
 import ProductBox from './pages/ProductBox';
 import BucketBox from './pages/BucketBox';
 import PaymentBox from './pages/PaymentBox';
-import VisitedProduct from './pages/VisitedProduct';
-import './App.css';
+import VisitedProduct from './components/VisitedProduct';
+import './styles/App.css';
 
 function App() {
     const { shoppingData } = useStore((state) => state);
