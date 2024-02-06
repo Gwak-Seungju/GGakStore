@@ -9,7 +9,7 @@ const URL = '/v1/search/shop.json';
 const useStore = create(
     persist(
         (set, get) => ({
-            btnActive: '상의',
+            btnActive: '',
             setBtnActive: (product) => set({ btnActive: product }),
 
             shoppingData: async (product) => {

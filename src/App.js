@@ -11,7 +11,7 @@ import VisitedProduct from './components/VisitedProduct';
 import './styles/App.css';
 
 function App() {
-    const { shoppingData } = useStore((state) => state);
+    const { shoppingData, setBtnActive } = useStore((state) => state);
     const inputRef = useRef();
     const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ function App() {
     };
 
     useEffect(() => {
+        setBtnActive('상의');
         shoppingData('상의');
     }, []);
 
