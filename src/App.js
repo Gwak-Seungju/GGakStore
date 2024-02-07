@@ -45,20 +45,34 @@ function App() {
                             ref={inputRef}
                             onKeyDown={(e) => activeEnter(e)}
                         />
-                        <button id="btn" onClick={activeButton}>
-                            검색
-                        </button>
+                        <svg
+                            focusable="false"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            id="searchBtn"
+                            onClick={activeButton}
+                        >
+                            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                        </svg>
                     </div>
                 </div>
                 <div>
-                    <button
+                    <svg
+                        width="30"
+                        height="30"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                         onClick={() => {
                             navigate('/BucketBox');
                         }}
                         id="bucket"
                     >
-                        장바구니
-                    </button>
+                        <path
+                            d="M6.5 20.5V7.5H23.5V26H11.5M6.5 22V26H10M10.5 10V8.43881C10.5 5.71118 12.5147 3.5 15 3.5C17.4853 3.5 19.5 5.71118 19.5 8.43881V10"
+                            stroke="black"
+                        ></path>
+                    </svg>
                 </div>
             </div>
 

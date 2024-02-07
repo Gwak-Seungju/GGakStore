@@ -5,6 +5,11 @@ body {
 #container {
     position: relative;
 }
+#searchBtn {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+}
 #visited {
     position: fixed;
     bottom: 30px;
@@ -37,10 +42,12 @@ body {
     display: flex;
     margin-bottom: 30px;
     justify-content: space-between;
+    align-items: center;
 }
 
 #title {
     display: flex;
+    align-items: center;
 }
 
 #storeName {
@@ -60,6 +67,8 @@ body {
     position: fixed;
     right: 20px;
     top: 20px;
+    border: 1px solid gray;
+    padding: 10px;
 }
 
 /* SearchBox */
