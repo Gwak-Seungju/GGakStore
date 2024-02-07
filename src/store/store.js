@@ -9,8 +9,8 @@ const URL = '/v1/search/shop.json';
 const useStore = create(
     persist(
         (set, get) => ({
-            btnActive: '',
-            setBtnActive: (product) => set({ btnActive: product }),
+            currentCategory: 0,
+            setCurrentCategory: (i) => set({ currentCategory: i }),
 
             shoppingData: async (product) => {
                 await axios

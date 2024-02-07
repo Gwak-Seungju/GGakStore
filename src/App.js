@@ -11,7 +11,7 @@ import VisitedProduct from './components/VisitedProduct';
 import './styles/App.css';
 
 function App() {
-    const { shoppingData, setBtnActive } = useStore((state) => state);
+    const { shoppingData } = useStore((state) => state);
     const inputRef = useRef();
     const navigate = useNavigate();
 
@@ -31,7 +31,6 @@ function App() {
     };
 
     useEffect(() => {
-        setBtnActive('상의');
         shoppingData('상의');
     }, []);
 
@@ -50,7 +49,7 @@ function App() {
                             ref={inputRef}
                             onKeyDown={(e) => activeEnter(e)}
                         />
-                        <button className="btn" onClick={activeButton}>
+                        <button id="btn" onClick={activeButton}>
                             검색
                         </button>
                     </div>
