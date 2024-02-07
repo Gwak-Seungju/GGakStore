@@ -305,6 +305,13 @@ body {
     font-size: 18px;
 }
 
+#clearBucket,
+#selectCoupon {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 3px 6px;
+}
+
 /*PaymentBox*/
 #paymentBoxPriceContainer {
     display: grid;

@@ -187,6 +187,7 @@ export default function PaymentBox() {
                     <div id="paymentBoxPayContainer">
                         <input
                             type="submit"
+                            className="btn"
                             id="paymentBoxPay"
                             value={`${result.toLocaleString('ko-KR')}원 결제하기`}
                         />
@@ -195,6 +196,7 @@ export default function PaymentBox() {
                     <div id="paymentBoxPayContainer">
                         <input
                             type="submit"
+                            className="btn"
                             id="paymentBoxPay"
                             value={`${(location.state.productNumber * location.state.lprice).toLocaleString(
                                 'ko-KR'
