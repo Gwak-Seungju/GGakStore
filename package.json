@@ -24,7 +24,6 @@
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
-    "homepage": "https://github.com/Gwak-Seungju/GGakStore.git",
     "eslintConfig": {
         "extends": [
             "react-app",
