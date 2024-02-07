@@ -2,6 +2,9 @@
 body {
     margin: 20px;
 }
+.btn {
+    cursor: pointer;
+}
 #container {
     position: relative;
 }
@@ -433,6 +436,7 @@ body {
     color: gray;
     background-color: white;
     text-align: left;
+    cursor: pointer;
 
     &.active {
         color: black;

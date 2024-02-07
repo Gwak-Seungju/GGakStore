@@ -35,7 +35,7 @@ function App() {
             <div id="headContainer">
                 <div>
                     <div id="title">
-                        <h1 id="storeName" onClick={goHome}>
+                        <h1 className="btn" id="storeName" onClick={goHome}>
                             GGak Store
                         </h1>
                         <input
@@ -49,6 +49,7 @@ function App() {
                             focusable="false"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
+                            className="btn"
                             id="searchBtn"
                             onClick={activeButton}
                         >
@@ -66,6 +67,7 @@ function App() {
                         onClick={() => {
                             navigate('/BucketBox');
                         }}
+                        className="btn"
                         id="bucket"
                     >
                         <path

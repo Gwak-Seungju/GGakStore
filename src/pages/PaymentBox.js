@@ -76,7 +76,9 @@ export default function PaymentBox() {
                         </div>
                         <div id="couponContainer">
                             <div id="coupon">쿠폰 할인</div>
-                            <button id="selectCoupon">쿠폰 선택</button>
+                            <button className="btn" id="selectCoupon">
+                                쿠폰 선택
+                            </button>
                             <div id="deductedAmount">- 원</div>
                         </div>
                         <div id="paymentBoxTotalPrice">총 {result.toLocaleString('ko-KR')}원</div>
@@ -106,7 +108,9 @@ export default function PaymentBox() {
                         </div>
                         <div id="couponContainer">
                             <div id="coupon">쿠폰 할인</div>
-                            <button id="selectCoupon">쿠폰 선택</button>
+                            <button className="btn" id="selectCoupon">
+                                쿠폰 선택
+                            </button>
                             <div id="deductedAmount">- 원</div>
                         </div>
                         <div id="paymentBoxTotalPrice">

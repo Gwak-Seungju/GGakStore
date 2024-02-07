@@ -21,6 +21,7 @@ export default function SearchBox() {
                     <div id="searchBoxRanking">{index + 1}위</div>
                     <Link to={`/ProductBox/${item.productId}/${index + 1}`}>
                         <img
+                            className="btn"
                             id="searchBoxProductImage"
                             src={item.image}
                             alt={item.mallName}

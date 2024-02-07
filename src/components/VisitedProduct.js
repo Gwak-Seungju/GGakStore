@@ -14,7 +14,7 @@ export default function VisitedProduct() {
                       ))
                     : null}
 
-                <button id="visitedProductClearButton" onClick={clearVisitedProduct}>
+                <button className="btn" id="visitedProductClearButton" onClick={clearVisitedProduct}>
                     비우기
                 </button>
             </div>

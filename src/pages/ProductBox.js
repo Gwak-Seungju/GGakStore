@@ -24,6 +24,7 @@ export default function ProductBox() {
                     <span id="purchaseQunatity">구매 수량</span>
                     <div>
                         <button
+                            className="btn"
                             id="decrease"
                             onClick={() => {
                                 if (productNumber > 1) {
@@ -35,6 +36,7 @@ export default function ProductBox() {
                         </button>
                         <span id="productNumber">{productNumber}</span>
                         <button
+                            className="btn"
                             id="increase"
                             onClick={() => {
                                 setProductNumber((count) => count + 1);
@@ -60,6 +62,7 @@ export default function ProductBox() {
                             addItem(items[ranking.ranking - 1]);
                             alert('장바구니에 담겼습니다!');
                         }}
+                        className="btn"
                         id="productBoxBucket"
                     >
                         장바구니
@@ -71,6 +74,7 @@ export default function ProductBox() {
                                 state: { ...items[ranking.ranking - 1] },
                             });
                         }}
+                        className="btn"
                         id="productBoxPurchase"
                     >
                         구매하기

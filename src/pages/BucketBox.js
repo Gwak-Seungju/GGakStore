@@ -28,6 +28,7 @@ export default function BucketBox() {
             <div id="bucketBoxsubHeader">
                 <div id="bucketBoxTotalProductNumber">상품 총 개수: {bucket.length}</div>
                 <button
+                    className="btn"
                     id="clearBucket"
                     onClick={() => {
                         clearBucket();
@@ -42,6 +43,7 @@ export default function BucketBox() {
                     <div id="bucketBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
                     <div id="bucketBoxProductNumberContainer">
                         <button
+                            className="btn"
                             id="bucketBoxDecrease"
                             onClick={() => {
                                 handleDecrease(index);
@@ -51,6 +53,7 @@ export default function BucketBox() {
                         </button>
                         <div id="bucketBoxProductNumber">{item.productNumber}</div>
                         <button
+                            className="btn"
                             id="bucketBoxIncrease"
                             onClick={() => {
                                 handleIncrease(index);
@@ -61,6 +64,7 @@ export default function BucketBox() {
                     </div>
                     <div id="bucketBoxProductPrice">{(item.lprice * item.productNumber).toLocaleString('ko-KR')}원</div>
                     <button
+                        className="btn"
                         onClick={() => {
                             removeItem(item.productId);
                         }}
@@ -75,7 +79,9 @@ export default function BucketBox() {
             })}
             <div id="bucketBoxTotalPrice">총 결제 금액: {result.toLocaleString('ko-KR')}원</div>
             <Link to={'/PaymentBox'}>
-                <button id="bucketBoxPay">주문하기</button>
+                <button className="btn" id="bucketBoxPay">
+                    주문하기
+                </button>
             </Link>
         </div>
     );
