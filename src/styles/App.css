@@ -224,6 +224,7 @@ body {
 
 #bucketContainer {
     display: grid;
+    width: 100vw - 200px;
     grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
     border: solid 1px blueviolet;
     border-radius: 5px;
@@ -325,6 +326,45 @@ body {
     border-radius: 5px;
     padding: 5px;
     gap: 20px 20px;
+}
+
+#payGuideContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px 10px;
+}
+
+#GGakPay {
+    display: flex;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    width: 250px;
+    height: 150px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    background-color: plum;
+}
+
+#tossPay {
+    font-size: 13px;
+    width: 400px;
+}
+
+.generalPaymentBtn {
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border: solid 1px gray;
+    border-radius: 5px;
+    color: gray;
+    font-size: 14px;
+    &.clicked {
+        color: blue;
+        border: solid 1px blue;
+    }
 }
 
 .guide {

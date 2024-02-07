@@ -10,6 +10,17 @@ export default function PaymentBox() {
         { id: 2, label: '[필수 ] 개인정보 제 3자 제공 동의', checked: false },
         { id: 3, label: '[필수 ] 전자결제대행 이용 동의', checked: false },
     ]);
+    const generalPayment = [
+        '카드',
+        '가상계좌',
+        'Apple Pay',
+        '휴대폰',
+        '카카오페이',
+        '삼성페이',
+        '네이버페이',
+        '페이코',
+    ];
+    const [clickedButton, setClickedButton] = useState('카드');
     const location = useLocation();
 
     let result = 0;
@@ -117,6 +128,27 @@ export default function PaymentBox() {
                         <input type="radio" name="payment" value="일반 결제" onChange={handleRadioCheck} /> 일반 결제
                         <br></br>
                     </div>
+                    <div className="guide">결제 안내</div>
+                    <div id="payGuideContainer">
+                        {isRadioChecked == '깍 페이' && <div id="GGakPay">GG Pay</div>}
+                        {isRadioChecked == '토스 페이' && (
+                            <div id="tossPay">ㆍ토스페이: 모든 카드(신용/체크), 계좌 결제 가능, 토스 소액후불결제</div>
+                        )}
+                        {isRadioChecked == '일반 결제' &&
+                            generalPayment.map((item, index) => (
+                                <button
+                                    className={'generalPaymentBtn' + (item === clickedButton ? ' clicked' : '')}
+                                    type="button"
+                                    key={index}
+                                    onClick={() => {
+                                        setClickedButton(item);
+                                    }}
+                                >
+                                    {item}
+                                </button>
+                            ))}
+                    </div>
+
                     <div className="guide" id="refundGuideTitle">
                         품절 시 환불 안내
                     </div>

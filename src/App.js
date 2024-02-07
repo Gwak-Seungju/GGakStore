@@ -30,10 +30,6 @@ function App() {
         navigate('/');
     };
 
-    useEffect(() => {
-        shoppingData('상의');
-    }, []);
-
     return (
         <div id="container">
             <div id="headContainer">
