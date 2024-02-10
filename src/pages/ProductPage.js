@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useStore from '../store/store';
 
-export default function ProductBox() {
+export default function ProductPage() {
     const ranking = useParams();
     const { items, addItem } = useStore((state) => state);
     const [productNumber, setProductNumber] = useState(1);
@@ -70,7 +70,7 @@ export default function ProductBox() {
                     <button
                         onClick={() => {
                             items[ranking.ranking - 1].productNumber = productNumber;
-                            navigate('/PaymentBox', {
+                            navigate('/PaymentPage', {
                                 state: { ...items[ranking.ranking - 1] },
                             });
                         }}

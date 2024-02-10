@@ -1,7 +1,7 @@
 import useStore from '../store/store';
 import { Link } from 'react-router-dom';
 
-export default function BucketBox() {
+export default function BucketPage() {
     const { bucket, setBucket, removeItem, clearBucket } = useStore((state) => state);
     const handleDecrease = (index) => {
         const updatedItems = bucket.map((item, i) => {
@@ -78,7 +78,7 @@ export default function BucketBox() {
                 result = result + item.lprice * item.productNumber;
             })}
             <div id="bucketBoxTotalPrice">총 결제 금액: {result.toLocaleString('ko-KR')}원</div>
-            <Link to={'/PaymentBox'}>
+            <Link to={'/PaymentPage'}>
                 <button className="btn" id="bucketBoxPay">
                     주문하기
                 </button>

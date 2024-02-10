@@ -41,7 +41,7 @@ export default function CategoryRanking() {
                     items.map((item, index) => (
                         <div id="searchBoxProduct" key={index}>
                             <div id="searchBoxRanking">{index + 1}위</div>
-                            <Link to={`/ProductBox/${item.productId}/${index + 1}`}>
+                            <Link to={`/ProductPage/${item.productId}/${index + 1}`}>
                                 <img
                                     id="searchBoxProductImage"
                                     src={item.image}

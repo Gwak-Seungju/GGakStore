@@ -1,12 +1,12 @@
 import React from 'react';
 import useStore from './store/store';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import CategoryRanking from './components/CategoryRanking';
-import SearchBox from './pages/SearchBox';
-import ProductBox from './pages/ProductBox';
-import BucketBox from './pages/BucketBox';
-import PaymentBox from './pages/PaymentBox';
+import SearchPage from './pages/SearchPage';
+import ProductPage from './pages/ProductPage';
+import BucketPage from './pages/BucketPage';
+import PaymentPage from './pages/PaymentPage';
 import VisitedProduct from './components/VisitedProduct';
 import './styles/App.css';
 
@@ -17,7 +17,7 @@ function App() {
 
     const activeButton = () => {
         shoppingData(inputRef.current.value);
-        navigate(`/SearchBox/${inputRef.current.value}`);
+        navigate(`/SearchPage/${inputRef.current.value}`);
     };
 
     const activeEnter = (e) => {
@@ -65,7 +65,7 @@ function App() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                         onClick={() => {
-                            navigate('/BucketBox');
+                            navigate('/BucketPage');
                         }}
                         className="btn"
                         id="bucket"
@@ -82,10 +82,10 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<CategoryRanking />} />
-                <Route path="/SearchBox/:product" element={<SearchBox />} />
-                <Route path="/ProductBox/:productId/:ranking" element={<ProductBox />} />
-                <Route path="/BucketBox" element={<BucketBox />} />
-                <Route path="/PaymentBox" element={<PaymentBox />} />
+                <Route path="/SearchPage/:product" element={<SearchPage />} />
+                <Route path="/ProductPage/:productId/:ranking" element={<ProductPage />} />
+                <Route path="/BucketPage" element={<BucketPage />} />
+                <Route path="/PaymentPage" element={<PaymentPage />} />
             </Routes>
         </div>
     );

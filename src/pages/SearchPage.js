@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useStore from '../store/store';
 
-export default function SearchBox() {
+export default function SearchPage() {
     const { items, shoppingData, addVisitedProduct } = useStore((state) => state);
     const { product } = useParams();
     const decodedProduct = decodeURIComponent(product);
     const currentURL = window.location.href;
-    const regex = /\/SearchBox/;
+    const regex = /\/SearchPage/;
     useEffect(() => {
         if (regex.test(currentURL)) {
             shoppingData(decodedProduct);
@@ -19,7 +19,7 @@ export default function SearchBox() {
             {items.map((item, index) => (
                 <div id="searchBoxProduct" key={index}>
                     <div id="searchBoxRanking">{index + 1}위</div>
-                    <Link to={`/ProductBox/${item.productId}/${index + 1}`}>
+                    <Link to={`/ProductPage/${item.productId}/${index + 1}`}>
                         <img
                             className="btn"
                             id="searchBoxProductImage"

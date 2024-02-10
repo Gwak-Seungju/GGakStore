@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useStore from '../store/store';
 import { useLocation } from 'react-router-dom';
 
-export default function PaymentBox() {
+export default function PaymentPage() {
     const { bucket } = useStore((state) => state);
     const [isRadioChecked, setIsRadioChecked] = useState(null);
     const [checkboxes, setCheckBoxes] = useState([
