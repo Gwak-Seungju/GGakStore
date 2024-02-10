@@ -11,7 +11,7 @@ import VisitedProduct from './components/VisitedProduct';
 import './styles/App.css';
 
 function App() {
-    const { shoppingData } = useStore((state) => state);
+    const { shoppingData, bucket } = useStore((state) => state);
     const inputRef = useRef();
     const navigate = useNavigate();
 
@@ -57,18 +57,21 @@ function App() {
                         </svg>
                     </div>
                 </div>
-                <div>
+                <div
+                    id="bucket"
+                    className="btn"
+                    onClick={() => {
+                        navigate('/BucketPage');
+                    }}
+                >
+                    <div id="bucketNumber">{bucket.length}</div>
                     <svg
-                        width="30"
-                        height="30"
+                        id="bucketIcon"
+                        width="20"
+                        height="20"
                         viewBox="0 0 30 30"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        onClick={() => {
-                            navigate('/BucketPage');
-                        }}
-                        className="btn"
-                        id="bucket"
                     >
                         <path
                             d="M6.5 20.5V7.5H23.5V26H11.5M6.5 22V26H10M10.5 10V8.43881C10.5 5.71118 12.5147 3.5 15 3.5C17.4853 3.5 19.5 5.71118 19.5 8.43881V10"
