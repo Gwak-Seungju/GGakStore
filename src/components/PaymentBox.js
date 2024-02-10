@@ -43,8 +43,8 @@ export default function PaymentBox({ purchaseItems }) {
     };
 
     return (
-        <div id="bucketBoxContainer">
-            <div>
+        <div id="paymentBoxContainer">
+            <div id="bucketBoxContainer">
                 <div id="bucketBoxsubHeader">
                     <div id="bucketBoxTotalProductNumber">상품 총 개수: {purchaseItems.length}</div>
                 </div>

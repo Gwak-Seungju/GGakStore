@@ -5,8 +5,28 @@ body {
 .btn {
     cursor: pointer;
 }
+
 #container {
     position: relative;
+}
+#headContainer {
+    display: flex;
+    margin-bottom: 30px;
+}
+#title {
+    display: flex;
+    align-items: center;
+}
+#storeName {
+    color: blueviolet;
+    margin: 0px;
+    font-family: Georgia;
+    margin-right: 10px;
+}
+#search {
+    height: 30px;
+    border: 3px solid blueviolet;
+    border-radius: 5px;
 }
 #searchBtn {
     width: 30px;
@@ -24,7 +44,6 @@ body {
     padding: 14px;
     padding-left: 7px;
 }
-
 #bucketNumber {
     z-index: 2;
     width: 7px;
@@ -37,13 +56,13 @@ body {
     border: none;
     border-radius: 5px;
 }
-
 #bucketIcon {
     z-index: 1;
     transform: scale(2);
 }
 
-#visited {
+/* VisitedProduct */
+#visitedContainer {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -52,18 +71,16 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 0.1px;
+    padding: 2px;
 }
-
 #visitedHead {
     font-weight: bold;
 }
-
 #visitedProductImage {
     width: 50px;
     height: 50px;
     border: 0.5px solid lightgray;
 }
-
 #visitedProductClearButton {
     border: none;
     border-radius: 2px;
@@ -71,32 +88,34 @@ body {
     color: white;
 }
 
-#headContainer {
+/* MainComponent */
+#rankingContainer {
+    display: grid;
+    grid-template-columns: 100px auto;
+    column-gap: 20px;
+}
+#productListContainer {
     display: flex;
-    margin-bottom: 30px;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.productBtn {
+    font-size: 12px;
+    height: 20px;
+    border: none;
+    padding: 0;
+    color: gray;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;
+
+    &.active {
+        color: black;
+        font-weight: bold;
+    }
 }
 
-#title {
-    display: flex;
-    align-items: center;
-}
-
-#storeName {
-    color: blueviolet;
-    margin: 0px;
-    font-family: Georgia;
-    margin-right: 10px;
-}
-
-#search {
-    height: 30px;
-    border: 3px solid blueviolet;
-    border-radius: 5px;
-}
-
-/* SearchBox */
+/* CategoryRanking */
 #searchBoxContainer {
     gap: 30px 30px;
 }
@@ -118,23 +137,19 @@ body {
         grid-template-columns: repeat(7, 1fr);
     }
 }
-
 #searchBoxProduct {
     width: 200px;
     height: 300px;
 }
-
 #searchBoxRanking {
     font-size: 12px;
     font-weight: bold;
 }
-
 #searchBoxProductImage {
     margin: 10px 20px;
     width: 160px;
     height: 200px;
 }
-
 #searchBoxProductName {
     width: 200px;
     font-size: 11px;
@@ -143,16 +158,16 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 #searchBoxProductPrice {
     font-weight: bold;
 }
 
-/*ProductBox */
+/* ProductPage */
 @media only screen and (max-width: 800px) {
     #productBoxContainer {
         display: flex;
         flex-direction: column;
+        width: 550px;
     }
     #productBoxProductImage {
         width: auto;
@@ -165,11 +180,10 @@ body {
     #productBoxContainer {
         display: flex;
         column-gap: 125px;
-        justify-content: space-around;
+        width: 90%;
     }
     #productBoxProductImage {
-        width: 700px;
-        height: 400px;
+        width: 30%;
         border: 1px solid lightgray;
         padding: 10px;
     }
@@ -178,41 +192,34 @@ body {
 #productInfo {
     display: flex;
     flex-direction: column;
+    width: 550px;
     border-left: 1px solid lightgray;
     padding-left: 20px;
     row-gap: 20px;
 }
-
 #productBoxProductName {
+    width: 500px;
     font-size: 25px;
     font-weight: bold;
 }
-
 #productBoxPriceContainer {
     font-size: 20px;
 }
 
-#purchaseQuantityContainer {
+#purchaseQuantityContainer,
+#totalPriceContainer {
     display: flex;
     justify-content: space-between;
 }
-
 #increase,
 #decrease {
     background-color: white;
     font-size: 20px;
     border: none;
 }
-
 #productNumber {
     margin: 0px 20px;
 }
-
-#totalPriceContainer {
-    display: flex;
-    justify-content: space-between;
-}
-
 #actualPrice {
     font-size: 18px;
     font-weight: bold;
@@ -220,9 +227,7 @@ body {
 
 #buttonContainer {
     display: flex;
-    justify-content: space-around;
 }
-
 #productBoxBucket {
     flex: auto;
     background-color: white;
@@ -230,7 +235,6 @@ body {
     border-radius: 5px;
     height: 35px;
 }
-
 #productBoxPurchase {
     flex: auto;
     background-color: blueviolet;
@@ -240,10 +244,11 @@ body {
     height: 35px;
 }
 
-/*BucketBox*/
+/* BucketPage */
 #bucketBoxContainer {
     display: flex;
     flex-direction: column;
+    width: 90%;
     row-gap: 5px;
 }
 
@@ -251,26 +256,23 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
 #bucketBoxTotalProductNumber {
     font-weight: bold;
 }
 
 #bucketContainer {
     display: grid;
-    width: 100vw - 200px;
     grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
     border: solid 1px blueviolet;
     border-radius: 5px;
     padding: 5px;
     column-gap: 5px;
+    align-items: center;
 }
-
 #bucketBoxImage {
     width: 200px;
     height: 200px;
 }
-
 #bucketBoxProductName {
     font-size: 18px;
     font-weight: bold;
@@ -278,29 +280,23 @@ body {
 }
 #bucketBoxProductNumberContainer {
     display: flex;
+    justify-content: center;
     column-gap: 5px;
-    align-self: center;
 }
-
 #bucketBoxProductNumber {
     font-size: 15px;
     text-align: center;
-    align-self: center;
 }
-
 #bucketBoxProductPrice {
     font-size: 15px;
-    align-self: center;
     text-align: center;
     font-weight: bold;
 }
-
 #bucketBoxDecrease,
 #bucketBoxIncrease,
 #bucketBoxDelete {
     width: 25px;
     height: 25px;
-    align-self: center;
     text-align: center;
     border-color: lightgray;
     border-radius: 20px;
@@ -314,7 +310,6 @@ body {
     font-weight: bold;
     margin: 20px 0;
 }
-
 #bucketBoxPay {
     width: 25vw;
     height: 50px;
@@ -334,7 +329,17 @@ body {
     padding: 3px 6px;
 }
 
-/*PaymentBox*/
+/* PaymentBox */
+#paymentBoxContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 90%;
+}
+#paymentBoxContainer #bucketBoxContainer {
+    width: 100%;
+}
+
 #paymentBoxPriceContainer {
     display: grid;
     border: solid 1px lightgray;
@@ -343,18 +348,14 @@ body {
     gap: 10px 0;
 }
 
-#paymentBoxPrice {
-    display: flex;
-    justify-content: space-between;
-}
-
-#couponContainer {
+#paymentBoxPrice,
+#couponContainer,
+#paymentBoxTotalPrice {
     display: flex;
     justify-content: space-between;
 }
 
 #paymentBoxTotalPrice {
-    display: flex;
     justify-content: flex-end;
     font-size: 20px;
     font-weight: bold;
@@ -371,10 +372,9 @@ body {
 
 #payGuideContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 150px);
     gap: 10px 10px;
 }
-
 #GGakPay {
     display: flex;
     border: solid 1px lightgray;
@@ -388,12 +388,10 @@ body {
     align-items: center;
     background-color: plum;
 }
-
 #tossPay {
     font-size: 13px;
     width: 400px;
 }
-
 .generalPaymentBtn {
     height: 50px;
     width: 150px;
@@ -430,7 +428,6 @@ body {
     display: flex;
     justify-content: center;
 }
-
 #paymentBoxPay {
     width: 25vw;
     height: 50px;
@@ -441,34 +438,4 @@ body {
     margin: 20px 0;
     align-self: center;
     font-size: 18px;
-}
-
-/*CategoryRanking*/
-#rankingContainer {
-    display: grid;
-    grid-template-columns: 100px auto;
-    column-gap: 20px;
-}
-
-#productListContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 5px 5px;
-}
-
-.productBtn {
-    font-size: 12px;
-    width: auto;
-    height: 20px;
-    border: none;
-    padding: 0;
-    color: gray;
-    background-color: white;
-    text-align: left;
-    cursor: pointer;
-
-    &.active {
-        color: black;
-        font-weight: bold;
-    }
 }
