@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useStore from '../store/store';
+import CategoryRanking from '../components/CategoryRanking';
 
 export default function SearchPage() {
-    const { items, shoppingData, addVisitedProduct } = useStore((state) => state);
+    const { shoppingData } = useStore((state) => state);
     const { product } = useParams();
     const decodedProduct = decodeURIComponent(product);
     const currentURL = window.location.href;
@@ -14,29 +15,5 @@ export default function SearchPage() {
         }
     }, [decodedProduct]);
 
-    return (
-        <div id="searchBoxContainer">
-            {items.map((item, index) => (
-                <div id="searchBoxProduct" key={index}>
-                    <div id="searchBoxRanking">{index + 1}위</div>
-                    <Link to={`/ProductPage/${item.productId}/${index + 1}`}>
-                        <img
-                            className="btn"
-                            id="searchBoxProductImage"
-                            src={item.image}
-                            alt={item.mallName}
-                            onClick={() => {
-                                addVisitedProduct(item);
-                            }}
-                        ></img>
-                    </Link>
-                    <div id="searchBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
-                    <div>
-                        <span id="searchBoxProductPrice">{(1 * item.lprice).toLocaleString('ko-KR')}</span>
-                        <span>원</span>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
+    return <CategoryRanking />;
 }

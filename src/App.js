@@ -2,7 +2,7 @@ import React from 'react';
 import useStore from './store/store';
 import { useRef } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import CategoryRanking from './components/CategoryRanking';
+import MainComponent from './components/MainComponent';
 import SearchPage from './pages/SearchPage';
 import ProductPage from './pages/ProductPage';
 import BucketPage from './pages/BucketPage';
@@ -81,7 +81,7 @@ function App() {
             <VisitedProduct />
 
             <Routes>
-                <Route path="/" element={<CategoryRanking />} />
+                <Route path="/" element={<MainComponent />} />
                 <Route path="/SearchPage/:product" element={<SearchPage />} />
                 <Route path="/ProductPage/:productId/:ranking" element={<ProductPage />} />
                 <Route path="/BucketPage" element={<BucketPage />} />
