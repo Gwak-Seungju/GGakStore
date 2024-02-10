@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# 회고 프로젝트 주제: 쇼핑 사이트 구현
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+웹 사이트의 주요 기능: 상품 입력란에 상품 입력 시 관련 상품 순위를 볼 수 있고, 원하는 상품 이미지 클릭 시 상품 정보를 볼 수 있는 상품 상세 페이지로 이동할 수 있다. 상품 개수를 정해서 장바구니에 담을 수도 있고, 바로 상품을 구매할 수도 있다. 장바구니 페이지에서는 고른 상품의 개수를 조정할 수 있으며 최종 주문을 할 수 있다. 결제 페이지에서는 결제 수단, 필수 동의 체크 등을 하여 결제 버튼을 클릭할 수 있다. 실제로 결제되지는 않는다.
 
-## Available Scripts
+naver openapi 사용, 무신사 스토어 웹사이트를 많이 참고했음
 
-In the project directory, you can run:
+## 페이지별 기능
 
-### `npm start`
+1. 메인 페이지
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   각 페이지별 고정값으로 있는 것이 있다. 헤더, 장바구니 아이콘, 방문했던 상품 목록바.
+-   헤더의 GGak Store를 클릭하면 메인 페이지로 이동한다. 상품 입력란에 상품을입력하면 관련 상품 순위가 나열되며 상품 검색 페이지로 이동한다. 장바구니아이콘을 클릭하면 장바구니 페이지로 이동한다. 방문했던 상품 목록바의 상품이미지를 클릭하면 상품 상세 페이지로 이동하고, 비우기를 하면 방문했던 상품목록이 사라진다.
+-   메인 페이지의 왼쪽 부분에 상품 카테고리가 있고, 각 카테고리를 클릭하면 그 카테고리의 상품 순위가 나열된다. 매8초마다 카테고리가 순서대로 바뀐다.
+-   검색했던 기록을 확인할 수 있고, 삭제할 수 있다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. 검색 페이지
 
-### `npm test`
+-   상품을 검색할 시 검색 페이지로 넘어간다. 상품 관련 순위가 1~100위까지 상품 이미지, 상품명, 가격과 함께 나열된다.
+-   상품 이미지를 클릭 시 그 상품 상세 페이지로 이동하며 방문했던 상품 목록에 그 상품을 추가한다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. 상품 페이지
 
-### `npm run build`
+-   상품 상세 페이지에도 상품 이미지, 상품명, 가격 정보가 제공되어 있고, 원하는 구매 수량을 –버튼과 +버튼으로 조정할 수 있다. 구매 수량에 따라 총 상품 금액이 바뀐다.
+-   장바구니 버튼을 클릭하면 정한 구매 수량과 함께 장바구니에 담기고 장바구니에 담겼다는 alert창이 뜬다.
+-   구매하기 버튼을 클릭하면 정한 구매 수량과 함게 결제 페이지로 바로 이동한다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. 장바구니 페이지
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   장바구니에 담긴 총 상품 개수를 보여준다.
+-   장바구니에 담았던 상품들이 나열된다.
+-   장바구니 비우기 버튼을 클릭하면 장바구니에 담겼던 상품들이 모두 없어진다.
+-   장바구니 페이지에서는 구매 수량을 다시 조정할 수 있고, 장바구니에서 없애고 싶은 상품을 x버튼을 이용해 삭제할 수 있다.
+-   총 결제 금액이 나오고, 주문하기 버튼을 클릭 시 결제 페이지로 이동한다.
+-   같은 상품을 장바구니에 여러번 담을 수 없게 해야 함.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. 결제 페이지
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   결제할 상품을 보여주고, 총 상품 금액을 보여준다.
+-   쿠폰을 선택해 할인을 받을 수 있다.
+-   3개의 결제 수단 중 하나를 정할 수 있다. 결제 수단을 클릭하면 각 결제 수단에 맞는 결제 안내 정보가 나온- 결제 수단을 고르지 않을 시 결제 완료를 할 수 없다.
+-   주문자 동의 중 [필수] 버튼을 모두 클릭해야 결제를 완료할 수 있다.
+-   결제 버튼을 클릭하면 결제 완료 alert창이 뜬다.
