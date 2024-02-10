@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import useStore from '../store/store';
 
 export default function ProductPage() {
     const ranking = useParams();
-    const { items, addItem } = useStore((state) => state);
+    const { items, addItem, bucket } = useStore((state) => state);
     const [productNumber, setProductNumber] = useState(1);
+    const [isAddableProduct, setIsAddableProduct] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        bucket.map((item) => {
+            if (item.title === items[ranking.ranking - 1].title) setIsAddableProduct(false);
+        });
+    }, [bucket]);
+
     return (
         <div id="productBoxContainer">
             <img id="productBoxProductImage" src={items[ranking.ranking - 1].image}></img>
@@ -58,9 +66,15 @@ export default function ProductPage() {
                 <div id="buttonContainer">
                     <button
                         onClick={() => {
-                            items[ranking.ranking - 1].productNumber = productNumber;
-                            addItem(items[ranking.ranking - 1]);
-                            alert('장바구니에 담겼습니다!');
+                            {
+                                if (bucket.length === 0 || isAddableProduct) {
+                                    items[ranking.ranking - 1].productNumber = productNumber;
+                                    addItem(items[ranking.ranking - 1]);
+                                    alert('장바구니에 담겼습니다!');
+                                } else {
+                                    alert('이미 장바구니에 같은 상품이 있습니다.');
+                                }
+                            }
                         }}
                         className="btn"
                         id="productBoxBucket"

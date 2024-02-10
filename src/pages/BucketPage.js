@@ -1,5 +1,5 @@
 import useStore from '../store/store';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function BucketPage() {
     const { bucket, setBucket, removeItem, clearBucket } = useStore((state) => state);
@@ -21,7 +21,7 @@ export default function BucketPage() {
         });
         setBucket(updatedItems);
     };
-
+    const navigate = useNavigate();
     let result = 0;
     return (
         <div id="bucketBoxContainer">
@@ -78,11 +78,16 @@ export default function BucketPage() {
                 result = result + item.lprice * item.productNumber;
             })}
             <div id="bucketBoxTotalPrice">총 결제 금액: {result.toLocaleString('ko-KR')}원</div>
-            <Link to={'/PaymentPage'}>
-                <button className="btn" id="bucketBoxPay">
-                    주문하기
-                </button>
-            </Link>
+
+            <button
+                className="btn"
+                id="bucketBoxPay"
+                onClick={() => {
+                    result === 0 ? alert('최소 하나 이상의 상품을 구매하셔야 합니다.') : navigate('/PaymentPage');
+                }}
+            >
+                주문하기
+            </button>
         </div>
     );
 }
