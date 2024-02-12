@@ -252,6 +252,53 @@ body {
     row-gap: 5px;
 }
 
+#paymentBoxContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 90%;
+}
+#paymentBoxContainer #bucketBoxContainer {
+    width: 100%;
+}
+
+#bucketBoxPay {
+    width: 25vw;
+    height: 50px;
+    background-color: blueviolet;
+    border: solid 1px white;
+    color: white;
+    border-radius: 5px;
+    margin: 20px 0;
+    align-self: center;
+    font-size: 18px;
+}
+
+#paymentBoxPay {
+    width: 25vw;
+    height: 50px;
+    background-color: blueviolet;
+    border: solid 1px lightgray;
+    color: white;
+    border-radius: 5px;
+    margin: 20px 0;
+    align-self: center;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 1000px) {
+    #bucketBoxContainer,
+    #paymentBoxContainer {
+        width: 1000px;
+    }
+    #bucketBoxPay {
+        width: 250px;
+    }
+    #paymentBoxPay {
+        width: 250px;
+    }
+}
+
 #bucketBoxsubHeader {
     display: flex;
     justify-content: space-between;
@@ -310,17 +357,6 @@ body {
     font-weight: bold;
     margin: 20px 0;
 }
-#bucketBoxPay {
-    width: 25vw;
-    height: 50px;
-    background-color: blueviolet;
-    border: solid 1px white;
-    color: white;
-    border-radius: 5px;
-    margin: 20px 0;
-    align-self: center;
-    font-size: 18px;
-}
 
 #clearBucket,
 #selectCoupon {
@@ -330,16 +366,6 @@ body {
 }
 
 /* PaymentBox */
-#paymentBoxContainer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-    width: 90%;
-}
-#paymentBoxContainer #bucketBoxContainer {
-    width: 100%;
-}
-
 #paymentBoxPriceContainer {
     display: grid;
     border: solid 1px lightgray;
@@ -427,15 +453,4 @@ body {
 #paymentBoxPayContainer {
     display: flex;
     justify-content: center;
-}
-#paymentBoxPay {
-    width: 25vw;
-    height: 50px;
-    background-color: blueviolet;
-    border: solid 1px lightgray;
-    color: white;
-    border-radius: 5px;
-    margin: 20px 0;
-    align-self: center;
-    font-size: 18px;
 }
