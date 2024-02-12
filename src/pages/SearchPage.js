@@ -4,7 +4,7 @@ import useStore from '../store/store';
 import CategoryRanking from '../components/CategoryRanking';
 
 export default function SearchPage() {
-    const { shoppingData } = useStore((state) => state);
+    const { shoppingData, items } = useStore((state) => state);
     const { product } = useParams();
     const decodedProduct = decodeURIComponent(product);
     const currentURL = window.location.href;
@@ -15,5 +15,5 @@ export default function SearchPage() {
         }
     }, [decodedProduct]);
 
-    return <CategoryRanking />;
+    return <CategoryRanking products={items} />;
 }

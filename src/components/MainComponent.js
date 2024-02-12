@@ -3,7 +3,7 @@ import useStore from '../store/store';
 import CategoryRanking from './CategoryRanking';
 
 export default function MainComponent() {
-    const { shoppingData } = useStore((state) => state);
+    const { shoppingData, items } = useStore((state) => state);
     const productList = ['상의', '아우터', '바지', '스커트', '가방', '신발', '시계', '모자', '스포츠', '안경'];
     const [currentCategory, setCurrentCategory] = useState(0);
 
@@ -36,7 +36,7 @@ export default function MainComponent() {
                     </button>
                 ))}
             </div>
-            <CategoryRanking />
+            <CategoryRanking products={items.slice(0, 10)} />
         </div>
     );
 }
