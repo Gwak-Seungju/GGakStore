@@ -10,7 +10,7 @@ export default function MainComponent() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentCategory((prev) => (prev + 1) % productList.length);
-        }, 8000);
+        }, 6000);
 
         return () => clearInterval(intervalId);
     }, []);
