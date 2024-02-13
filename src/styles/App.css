@@ -379,6 +379,9 @@ body {
 #paymentBoxTotalPrice {
     display: flex;
     justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 #paymentBoxTotalPrice {
@@ -453,4 +456,70 @@ body {
 #paymentBoxPayContainer {
     display: flex;
     justify-content: center;
+}
+
+/* CouponModal */
+#modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    max-width: 100%;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+    font-family: sans-serif;
+}
+#couponListContainer {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    text-align: center;
+    row-gap: 15px;
+    margin: 20px 0;
+}
+#couponListContainer > div:nth-child(-n + 3) {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 15px 0;
+}
+
+.coupon {
+    text-align: left;
+    font-weight: bold;
+}
+#couponGuide {
+    font-size: 13px;
+    margin-left: 5px;
+}
+#closeModalBtn {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.discountAmount {
+    color: blue;
+}
+#cancelBtn {
+    width: 100px;
+    height: 35px;
+    background-color: white;
+    border: solid 1px blueviolet;
+}
+#selectCouponBtn {
+    width: 100px;
+    height: 35px;
+    background-color: blueviolet;
+    border: solid 1px white;
+    color: white;
 }

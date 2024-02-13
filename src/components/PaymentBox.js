@@ -1,6 +1,12 @@
 import { useState } from 'react';
+import CouponModal from './CouponModal';
 
 export default function PaymentBox({ purchaseItems }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+    const [discountAmount, setDiscountAmount] = useState(0);
+
     const [isRadioChecked, setIsRadioChecked] = useState(null);
     const [checkboxes, setCheckBoxes] = useState([
         { id: 1, label: '[필수 ] 개인정보 수집 및 이용 동의', checked: false },
@@ -68,12 +74,18 @@ export default function PaymentBox({ purchaseItems }) {
                     </div>
                     <div id="couponContainer">
                         <div id="coupon">쿠폰 할인</div>
-                        <button className="btn" id="selectCoupon">
+                        <button className="btn" id="selectCoupon" onClick={openModal}>
                             쿠폰 선택
                         </button>
-                        <div id="deductedAmount">- 원</div>
+                        <CouponModal
+                            isOpen={isModalOpen}
+                            closeModal={closeModal}
+                            amount={result}
+                            setDiscountAmount={setDiscountAmount}
+                        />
+                        <div id="deductedAmount">- {(1 * discountAmount).toLocaleString('ko-KR')}원</div>
                     </div>
-                    <div id="paymentBoxTotalPrice">총 {result.toLocaleString('ko-KR')}원</div>
+                    <div id="paymentBoxTotalPrice">총 {(result - discountAmount).toLocaleString('ko-KR')}원</div>
                 </div>
             </div>
             <form onSubmit={handleSubmit}>
@@ -146,7 +158,7 @@ export default function PaymentBox({ purchaseItems }) {
                         type="submit"
                         className="btn"
                         id="paymentBoxPay"
-                        value={`${result.toLocaleString('ko-KR')}원 결제하기`}
+                        value={`${(result - discountAmount).toLocaleString('ko-KR')}원 결제하기`}
                     />
                 </div>
             </form>
