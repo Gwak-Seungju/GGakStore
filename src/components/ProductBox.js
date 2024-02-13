@@ -16,7 +16,7 @@ export default function ProductBox({ product }) {
 
     return (
         <div id="productBoxContainer">
-            <img id="productBoxProductImage" src={product.image}></img>
+            <img id="productBoxProductImage" src={product.image} alt={product.mallName}></img>
             <div id="productInfo">
                 <div id="productBoxProductName">{product.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
                 <div id="productBoxPriceContainer">

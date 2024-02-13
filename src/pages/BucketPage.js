@@ -39,7 +39,7 @@ export default function BucketPage() {
             </div>
             {bucket.map((item, index) => (
                 <div id="bucketContainer" key={index}>
-                    <img id="bucketBoxImage" src={item.image}></img>
+                    <img id="bucketBoxImage" src={item.image} alt={item.mallName}></img>
                     <div id="bucketBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
                     <div id="bucketBoxProductNumberContainer">
                         <button

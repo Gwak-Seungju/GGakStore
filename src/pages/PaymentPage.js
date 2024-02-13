@@ -8,7 +8,7 @@ export default function PaymentPage() {
 
     return (
         <>
-            {location.state == null ? (
+            {location.state === null ? (
                 <PaymentBox purchaseItems={bucket} />
             ) : (
                 <PaymentBox purchaseItems={[location.state]} />

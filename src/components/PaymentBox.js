@@ -50,7 +50,7 @@ export default function PaymentBox({ purchaseItems }) {
                 </div>
                 {purchaseItems.map((item, index) => (
                     <div id="bucketContainer" key={index}>
-                        <img id="bucketBoxImage" src={item.image}></img>
+                        <img id="bucketBoxImage" src={item.image} alt={item.mallName}></img>
                         <div id="bucketBoxProductName">{item.title.replace(/<b>/g, '').replace(/<\/b>/g, '')}</div>
                         <div id="bucketBoxProductNumber">{item.productNumber}개</div>
                         <div id="bucketBoxProductPrice">
@@ -91,11 +91,11 @@ export default function PaymentBox({ purchaseItems }) {
                     </div>
                     <div className="guide">결제 안내</div>
                     <div id="payGuideContainer">
-                        {isRadioChecked == '깍 페이' && <div id="GGakPay">GG Pay</div>}
-                        {isRadioChecked == '토스 페이' && (
+                        {isRadioChecked === '깍 페이' && <div id="GGakPay">GG Pay</div>}
+                        {isRadioChecked === '토스 페이' && (
                             <div id="tossPay">ㆍ토스페이: 모든 카드(신용/체크), 계좌 결제 가능, 토스 소액후불결제</div>
                         )}
-                        {isRadioChecked == '일반 결제' &&
+                        {isRadioChecked === '일반 결제' &&
                             generalPayment.map((item, index) => (
                                 <button
                                     className={'generalPaymentBtn' + (item === clickedButton ? ' clicked' : '')}
