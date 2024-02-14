@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import useStore from '../store/store';
 
 export default function VisitedProduct() {
-    const { visitedProduct, clearVisitedProduct } = useStore((state) => state);
+    const { visitedProduct, addVisitedProduct, clearVisitedProduct } = useStore((state) => state);
     const navigate = useNavigate();
     return (
         <div id="visitedContainer">
@@ -16,6 +16,7 @@ export default function VisitedProduct() {
                               alt={item.mallName}
                               className="btn"
                               onClick={() => {
+                                  addVisitedProduct(item);
                                   navigate(`/ProductPage/${item.productId}/${index + 1}`, { state: { item } });
                               }}
                           ></img>
