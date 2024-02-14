@@ -24,7 +24,7 @@ export default function CouponModal({ isOpen, closeModal, amount, setDiscountAmo
                             <div className="couponHeader">할인율</div>
                             <div className="couponHeader">할인금액</div>
                             {couponList.map((item) => {
-                                item['할인금액'] = item.할인금액 + (amount * item.할인율) / 100;
+                                item['할인금액'] = Math.round(item.할인금액 + (amount * item.할인율) / 100);
                             })}
 
                             {couponList.map((item, index) => (
