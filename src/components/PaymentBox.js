@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import CouponModal from './CouponModal';
+import { useNavigate } from 'react-router-dom';
 
 export default function PaymentBox({ purchaseItems }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
     const [discountAmount, setDiscountAmount] = useState(0);
+    const navigate = useNavigate();
 
     const [isRadioChecked, setIsRadioChecked] = useState(null);
     const [checkboxes, setCheckBoxes] = useState([
@@ -33,6 +35,7 @@ export default function PaymentBox({ purchaseItems }) {
         const allChecked = checkboxes.every((checkbox) => checkbox.checked);
         if (allChecked && isRadioChecked !== null) {
             alert('결제가 완료되었습니다. 감사합니다.');
+            navigate('/');
         } else {
             alert('필수 동의 사항을 모두 체크해주십시오.');
         }
